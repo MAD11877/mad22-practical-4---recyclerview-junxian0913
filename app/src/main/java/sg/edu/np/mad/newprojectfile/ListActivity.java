@@ -19,13 +19,28 @@ import java.util.Random;
 public class ListActivity extends AppCompatActivity {
 
 
+    public static ArrayList<user> list2 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        ArrayList<user> list = new ArrayList<>();
+        RecyclerView justin = findViewById(R.id.picture);
+
+        Messageadapter ks = new Messageadapter(list2);
+
+        LinearLayoutManager vic = new LinearLayoutManager(this);
+        justin.setLayoutManager(vic);
+        justin.setItemAnimator(new DefaultItemAnimator());
+        justin.setAdapter(ks);
+
+        ImageView picture = findViewById(R.id.imageView4);
+        ListActivity obj = new ListActivity();
+
+        user chengann = new user("junxian","royce",1,false);
+
+
 
         for (int i = 0; i<20; i++){
             Random rand = new Random();
@@ -40,31 +55,16 @@ public class ListActivity extends AppCompatActivity {
             description = "Description  "+ jun;
             followed = rand.nextBoolean();
             user royce = new user(name, description, xian,followed);
-            list.add(royce);
-
-
-
+            list2.add(royce);
         }
-        RecyclerView justin = findViewById(R.id.picture);
-
-        Messageadapter ks = new Messageadapter(list);
-
-        LinearLayoutManager vic = new LinearLayoutManager(this);
-        justin.setLayoutManager(vic);
-        justin.setItemAnimator(new DefaultItemAnimator());
-        justin.setAdapter(ks);
-
-        ImageView picture = findViewById(R.id.imageView4);
-        ListActivity obj = new ListActivity();
-
-        user chengann = new user("junxian","royce",1,false);
 
 
 
+
+    }
 
 
 
 
 
     }
-}

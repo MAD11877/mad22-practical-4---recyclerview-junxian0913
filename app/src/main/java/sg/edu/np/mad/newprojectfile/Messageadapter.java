@@ -22,18 +22,18 @@ import java.util.Random;
 public class Messageadapter extends RecyclerView.Adapter<Messageholder> {
 
 
-    ArrayList<user> justin ;
+    public static ArrayList<user> list2;
 
 
-    public Messageadapter(ArrayList<user> justin) {
+    public Messageadapter(ArrayList<user> list) {
 
-        this.justin = justin;
+        this.list2 =list;
     }
 
     @Override
 
     public int getItemViewType(int position  ) {
-        user vv = justin.get(position);
+        user vv = list2.get(position);
         if(vv.name.endsWith("7")){
             return 0;
         }
@@ -56,7 +56,7 @@ public class Messageadapter extends RecyclerView.Adapter<Messageholder> {
 
     @Override
     public void onBindViewHolder(@NonNull Messageholder holder, int position) {
-        user vv = justin.get(position);
+        user vv = list2.get(position);
 
         holder.name.setText(vv.name);
         holder.des.setText(vv.description);
@@ -79,7 +79,7 @@ public class Messageadapter extends RecyclerView.Adapter<Messageholder> {
 
                         Bundle extras = new Bundle();
 
-
+                        extras.putInt("pos1",position);
                         extras.putString("randval",vv.name);
                         extras.putString("des",vv.description);
                         Intent next = new Intent(holder.pic.getContext(),MainActivity.class);
@@ -103,6 +103,6 @@ public class Messageadapter extends RecyclerView.Adapter<Messageholder> {
 
     @Override
     public int getItemCount() {
-        return justin.size();
+        return list2.size();
     }
 }

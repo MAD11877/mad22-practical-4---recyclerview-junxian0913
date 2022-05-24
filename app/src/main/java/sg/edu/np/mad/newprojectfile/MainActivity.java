@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         String d = next.getStringExtra("des");
         TextView textview = findViewById(R.id.textView4);
         TextView textview1 = findViewById(R.id.textView5);
-        user chengann = new user("royce","owg",1,false);
+        //user chengann = new user("royce","owg",1,false);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,28 +33,36 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(owen);
             }
         });
+        int pos = next.getIntExtra("pos1",0);
+
         Button btn = findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chengann.followed = !chengann.followed;
 
-                if(chengann.followed){
-                    btn.setText("unfollow");
-                    Toast.makeText(getApplicationContext(),"unfollow",Toast.LENGTH_LONG).show();
+                if(ListActivity.list2.get(pos).followed  ){
+                    ListActivity.list2.get(pos).followed = false;
+                    btn.setText("follow");
+                    Toast.makeText(getApplicationContext(),"follow",Toast.LENGTH_LONG).show();
 
                 }
                 else{
-                    btn.setText("follow");
-                    Toast.makeText(MainActivity.this, "follow",Toast.LENGTH_LONG).show();
+                    btn.setText("unfollow");
+                    ListActivity.list2.get(pos).followed = true;
+                    Toast.makeText(MainActivity.this, "unfollow",Toast.LENGTH_LONG).show();
                 }
+
             }
         });
 
         textview.setText(v);
         textview1.setText(d);
 
-
-
+        if(ListActivity.list2.get(pos).followed){
+            btn.setText("Unfollow");
+        }
+        else{
+            btn.setText("follow");
+        }
     }
 }

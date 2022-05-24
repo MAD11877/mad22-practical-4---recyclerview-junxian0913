@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/mad22-practical-4---recyclerview-junxian0913.iml" filepath="$PROJECT_DIR$/.idea/mad22-practical-4---recyclerview-junxian0913.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/New_project_file.iml" filepath="$PROJECT_DIR$/.idea/modules/New_project_file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/New_project_file.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/New_project_file.app.iml" />
     </modules>
   </component>
 </project>
